@@ -1,8 +1,6 @@
 package com.example.newcalculator;
 
 
-//import com.xperttech.helloworld.MainActivity;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -10,7 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-//import android.widget.Toast;
+
 
 public class MainActivity extends Activity {
 
@@ -37,7 +35,7 @@ public class MainActivity extends Activity {
 		cleanListener clean = new cleanListener();
 		MyMemoryListener myMemoryListner = new MyMemoryListener();
 		MemoryCleanListener memoryCleanListner = new MemoryCleanListener();
-		
+
 		setContentView(R.layout.activity_main);
 		textview= (TextView)findViewById(R.id.txtResult);
 		btn1=(Button)findViewById(R.id.btnOne);
@@ -88,20 +86,20 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
+
 	void clearResult()
 	{
-		textview.setText("0");
+		textview.setText("");
 		OperationIsDone=false;		
 	}
-	
+
 	class cleanListener implements OnClickListener
 	{
 		@Override
 		public void onClick(View v) {
 			MRpressed = false;
 			clearResult();
-			 
+
 		}
 	}
 	class MyNumberListener implements OnClickListener
@@ -112,12 +110,12 @@ public class MainActivity extends Activity {
 			if(OperationIsDone)
 			{
 				clearResult();
-			
+
 			}
 			Button whichButton = (Button) arg0;
 			String strNumberEntered = whichButton.getText().toString();
 			int numberAsInteger = Integer.parseInt(strNumberEntered);
-			//MemoryCalculation=Integer.parseInt(strNumberEntered);
+
 			if(!userIsInMiddleOfTypingANumber)
 			{
 				numberOne = numberAsInteger;
@@ -151,29 +149,25 @@ public class MainActivity extends Activity {
 					performMath();
 					OperationIsDone=true;
 					return;
-				
+
 				}
-				
+
 				String existingText = textview.getText().toString() ;
 				String newText = existingText + operationEntered;
 				textview.setText(newText);
-				 
-	    	}
 
-	 }
+			}
+
+		}
 	}
 
 	void clearMemory()
 	{
-		//memoryData =0;
-	    // textview.setText(String.valueOf(memoryData));
-		//memoryData= Double.parseDouble((String) textview.getText());
-		
-		 memoryData =0;
-	     textview.setText(String.valueOf(memoryData));
-	     userIsInMiddleOfTypingANumber=false;
+		memoryData =0;
+		textview.setText(String.valueOf(memoryData));
+		userIsInMiddleOfTypingANumber=false;
 	}
-	
+
 	class MemoryCleanListener implements OnClickListener
 	{
 		@Override
@@ -181,11 +175,11 @@ public class MainActivity extends Activity {
 		{
 
 			clearMemory();
-			 
+
 		}
 	}
-	 
-	 
+
+
 	class MyMemoryListener implements OnClickListener
 	{
 		@Override
@@ -195,87 +189,69 @@ public class MainActivity extends Activity {
 			if(operationEntered.equals("MR"))
 			{
 				performMemoryRead();
-				//performMath();
 				OperationIsDone=true;
 				return;
 			}
 			if(userIsInMiddleOfTypingANumber||MRpressed)
 			{
-				 
-				 if(operationEntered.equals("M+"))
+
+				if(operationEntered.equals("M+"))
 				{
-					 plusMemory();
-					//performMath();
-				OperationIsDone=true;
-					 MRpressed = false;
-					return;
-					
-				}
-				/*else if(operationEntered.equals("MR"))
-				{
-					performMemoryRead();
-					//performMath();
+					plusMemory();
 					OperationIsDone=true;
+					MRpressed = false;
 					return;
-				}*/
-				 
+
+				}
+
 				else if(operationEntered.equals("M-"))
 				{
-					 minusMemory();
+					minusMemory();
 					OperationIsDone=true;
 					MRpressed = false;
 					return;
 				}
-				
+
 				String existingText = textview.getText().toString() ;
 				String newText = existingText + operationEntered;
 				textview.setText(newText);
-				 
-			        	}
 
-			        }
+			}
+
+		}
 	}
 
-	
-	void performMemoryRead()
-	      {
-		
-		 // memoryData= Double.parseDouble((String) textview.getText());
-	        textview.setText(String.valueOf(memoryData));
-	        userIsInMiddleOfTypingANumber= false;
-	        OperationIsDone = true;
-	        MRpressed = true;
-	   	}
-		 
-		
-	   void plusMemory()
-		{
-		   Double oldMem = Double.parseDouble("0");
-		   Double newMem = Double.parseDouble("0");
-		   oldMem = memoryData;
-		   newMem = Double.parseDouble((String) textview.getText());
-		   memoryData  = oldMem+newMem;
-		   OperationIsDone = true;
-		   //memoryData= Double.parseDouble((String) textview.getText());
-		   // newMemoryData = memoryData + Double.parseDouble((String) textview.getText());
-          //textview.setText(String.valueOf(newMemoryData));
 
-   	}
-		
-		void minusMemory() 
-		{
-			/* memoryData= Double.parseDouble((String) textview.getText());
-			 newMemoryData = memoryData - Double.parseDouble((String) textview.getText());
-*/
-			Double oldMem = Double.parseDouble("0");
-			   Double newMem = Double.parseDouble("0");
-			   oldMem = memoryData;
-			   newMem = Double.parseDouble((String) textview.getText());
-			   memoryData  = oldMem-newMem;
-			   OperationIsDone = true;
-	    }
-	
-	
+	void performMemoryRead()
+	{
+		textview.setText(String.valueOf(memoryData));
+		userIsInMiddleOfTypingANumber= false;
+		OperationIsDone = true;
+		MRpressed = true;
+	}
+
+
+	void plusMemory()
+	{
+		Double oldMem = Double.parseDouble("0");
+		Double newMem = Double.parseDouble("0");
+		oldMem = memoryData;
+		newMem = Double.parseDouble((String) textview.getText());
+		memoryData  = oldMem+newMem;
+		OperationIsDone = true;
+	}
+
+	void minusMemory() 
+	{
+		Double oldMem = Double.parseDouble("0");
+		Double newMem = Double.parseDouble("0");
+		oldMem = memoryData;
+		newMem = Double.parseDouble((String) textview.getText());
+		memoryData  = oldMem-newMem;
+		OperationIsDone = true;
+	}
+
+
 	void performMath()
 	{
 		String textEnteredSoFar = textview.getText().toString();
@@ -305,8 +281,8 @@ public class MainActivity extends Activity {
 				operand = currentCharacter;
 				//doMultiplication();
 			}
-			
-			 
+
+
 			else 
 
 				if(value1IsDone)
@@ -333,7 +309,7 @@ public class MainActivity extends Activity {
 		{
 			doMultiplication(value1, value2);
 		}
-		 
+
 	}
 
 	void doAddition(String value1, String value2)
@@ -350,7 +326,7 @@ public class MainActivity extends Activity {
 	{
 		double number1 = Double.parseDouble(value1);
 		double number2 = Double.parseDouble(value2);
-		 
+
 		double substraction = number1 - number2;
 		textview.setText(String.valueOf (substraction));
 	}

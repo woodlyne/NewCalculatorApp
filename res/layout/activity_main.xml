@@ -2,33 +2,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F09908"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#F09908"
     tools:context=".MainActivity" >
-    
-   <TextView
-       android:id="@+id/txtResult"
-       android:layout_width="200dp"
-       android:layout_height="fill_parent"
-       android:layout_above="@+id/btnEight"
-       android:layout_alignRight="@+id/btnMultiply"
-       android:text="0" />
+
+    <TextView
+        android:id="@+id/txtResult"
+        android:layout_width="200dp"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/btnEight"
+        android:layout_alignRight="@+id/btnMultiply"
+        android:text="0" />
 
     <Button
         android:id="@+id/btnSeven"
         style="@style/CalculatorButtonStyle"
         android:layout_marginTop="129dp"
-        android:text="7"/>
+        android:text="7" />
 
     <Button
         android:id="@+id/btnEight"
         style="@style/CalculatorButtonStyle"
         android:layout_alignTop="@+id/btnSeven"
         android:layout_toRightOf="@+id/btnSeven"
-       android:text="8" />
+        android:text="8" />
 
     <Button
         android:id="@+id/btnNine"
@@ -42,7 +42,7 @@
         style="@style/CalculatorButtonStyle"
         android:layout_alignLeft="@+id/btnSeven"
         android:layout_below="@+id/btnSeven"
-         android:text="4" />
+        android:text="4" />
 
     <Button
         android:id="@+id/btnFive"
@@ -50,14 +50,14 @@
         android:layout_alignBaseline="@+id/btnFour"
         android:layout_alignBottom="@+id/btnFour"
         android:layout_alignLeft="@+id/btnEight"
-        android:text="5"/>
+        android:text="5" />
 
     <Button
         android:id="@+id/btnSix"
         style="@style/CalculatorButtonStyle"
         android:layout_alignLeft="@+id/btnNine"
         android:layout_alignTop="@+id/btnFive"
-       android:text="6" />
+        android:text="6" />
 
     <Button
         android:id="@+id/btnOne"
@@ -71,9 +71,7 @@
         style="@style/CalculatorButtonStyle"
         android:layout_alignLeft="@+id/btnFive"
         android:layout_alignTop="@+id/btnOne"
-      android:text="2"
-      android:textColor="#d3414a"
-        />
+        android:text="2" />
 
     <Button
         android:id="@+id/btnThree"
@@ -81,7 +79,7 @@
         android:layout_alignBaseline="@+id/btnTwo"
         android:layout_alignBottom="@+id/btnTwo"
         android:layout_alignLeft="@+id/btnSix"
-         android:text="3" />
+        android:text="3" />
 
     <Button
         android:id="@+id/btnZero"
@@ -96,7 +94,8 @@
         android:layout_alignBottom="@+id/btnZero"
         android:layout_alignLeft="@+id/btnTwo"
         android:layout_alignRight="@+id/btnThree"
-        android:text="clear" />
+        android:text="clear"
+        android:textColor="#00F678"/>
 
     <Button
         android:id="@+id/btnEqual"
@@ -104,52 +103,53 @@
         android:layout_alignBaseline="@+id/btnClear"
         android:layout_alignBottom="@+id/btnClear"
         android:layout_alignLeft="@+id/btnMinus"
-        android:text="="/>
+        android:text="="
+        android:textColor="#d3414a" />
 
     <Button
         android:id="@+id/btnMultiply"
         style="@style/CalculatorButtonStyle"
         android:layout_above="@+id/btnMinus"
         android:layout_toRightOf="@+id/btnNine"
-         android:text="*"/>
+        android:text="*"
+        android:textColor="#d3414a" />
 
     <Button
         android:id="@+id/btnPlus"
         style="@style/CalculatorButtonStyle"
         android:layout_above="@+id/btnEqual"
         android:layout_alignLeft="@+id/btnEqual"
-         android:text="+" />
+        android:text="+"
+        android:textColor="#d3414a" />
 
     <Button
         android:id="@+id/btnMinus"
         style="@style/CalculatorButtonStyle"
         android:layout_alignLeft="@+id/btnMultiply"
         android:layout_below="@+id/btnNine"
-        android:text="-"/>
+        android:text="-"
+        android:textColor="#d3414a" />
 
     <Button
         android:id="@+id/btnPlusMemory"
-        style="@style/CalculatorButtonStyle" 
+        style="@style/CalculatorButtonStyle"
         android:layout_above="@+id/btnEight"
         android:layout_toRightOf="@+id/btnEight"
-        android:text="M+"
-          />
+        android:text="M+" />
 
     <Button
         android:id="@+id/btnClearMemory"
-        style="@style/CalculatorButtonStyle" 
+        style="@style/CalculatorButtonStyle"
         android:layout_above="@+id/btnMultiply"
         android:layout_alignLeft="@+id/btnMultiply"
-        android:text="MC"
-          />
+        android:text="MC" />
 
     <Button
         android:id="@+id/btnMemoryRead"
         style="@style/CalculatorButtonStyle"
         android:layout_alignBottom="@+id/txtResult"
         android:layout_toRightOf="@+id/btnSeven"
-        android:text="MR" 
-     />
+        android:text="MR" />
 
     <Button
         android:id="@+id/btnMinusMemory"
@@ -157,7 +157,6 @@
         android:layout_alignBaseline="@+id/btnMemoryRead"
         android:layout_alignBottom="@+id/btnMemoryRead"
         android:layout_alignRight="@+id/btnSeven"
-        android:text="M-" 
-    />
+        android:text="M-" />
 
 </RelativeLayout>
